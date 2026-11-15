@@ -1,8 +1,6 @@
-{lib, ...}:
-let
+{lib, ...}: let
   unbind = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
-in
-{
+in {
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-1 = ["<Super>1"];

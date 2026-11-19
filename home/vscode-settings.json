@@ -1,0 +1,56 @@
+{
+    // ── Appearance ──────────────────────────────────────────────────────────
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+
+    // Suggested by Catppuccin theme
+    "editor.semanticHighlighting.enabled": true,
+    "window.titleBarStyle": "custom",
+
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": "'cv01', 'cv02', 'cv14', 'ss05', 'ss04', 'ss03', 'cv30', 'ss02', 'cv24', 'ss09', 'ss07'",
+    "editor.fontSize": 14,
+
+    "workbench.tree.indent": 20,
+    "editor.minimap.enabled": false,
+
+    // --- Files --------------------------------------------------------------
+    "files.autoSave": "afterDelay",
+    
+    // --- Git ----------------------------------------------------------------
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+
+    // --- Telemetry ----------------------------------------------------------
+    // Allow error reports (crash diagnostics) but nothing else.
+    // Ref: https://code.visualstudio.com/docs/configure/telemetry
+    "telemetry.telemetryLevel": "error",
+
+    // --- Formatting ---------------------------------------------------------
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+
+    "editor.tabSize": 4,
+
+    // --- Nix ----------------------------------------------------------------
+    "[nix]": {
+        "editor.formatOnSave": true
+    },
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nix.serverSettings": {
+        "nixd": {
+            "formatting": {
+                "command": [
+                    "alejandra"
+                ]
+            },
+            "options": {
+                "nixos": {
+                    "expr": "(builtins.getFlake \"/home/jakob/nixos-config\").nixosConfigurations.jakobs-ideapad.options"
+                }
+            }
+        }
+    }
+}

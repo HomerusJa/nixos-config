@@ -66,6 +66,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Install fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #

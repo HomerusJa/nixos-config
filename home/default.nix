@@ -4,6 +4,7 @@
     ./gh.nix
     ./gnome.nix
     ./vscode.nix
+    ./zen.nix
   ];
 
   # temporary until I create a proper shell setup

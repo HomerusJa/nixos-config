@@ -1,15 +1,11 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
+    ./ghostty.nix
     ./git.nix
-    ./gh.nix
     ./gnome.nix
+    ./shell.nix
     ./vscode.nix
     ./zen.nix
-  ];
-
-  # temporary until I create a proper shell setup
-  home.packages = with pkgs; [
-    wl-clipboard
   ];
 
   home.stateVersion = "26.05"; # set once, never bump

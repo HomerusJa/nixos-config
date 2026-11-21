@@ -63,6 +63,9 @@
     packages = with pkgs; [];
   };
 
+  programs.zsh.enable = true;
+  users.users."jakob".shell = pkgs.zsh;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

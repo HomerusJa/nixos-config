@@ -45,6 +45,8 @@ in {
       "switch-to-application-12" = unbind;
     };
 
-    "/org/gnome/shell/app-switcher/current-workspace-only" = true;
+    "org/gnome/shell/app-switcher" = {
+      current-workspace-only = true;
+    };
   };
 }

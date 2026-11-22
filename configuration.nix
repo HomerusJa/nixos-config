@@ -74,6 +74,14 @@
     nerd-fonts.fira-code
   ];
 
+  # Make sure the boot menu doesnt fill up with old kernels
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #

@@ -1,11 +1,19 @@
-{inputs, ...}: {
-  imports = [inputs.zen-browser.homeModules.beta];
+{ inputs, config, lib, pkgs, ... }:
+let
+  zenDesktopRenamed = pkgs.runCommand "zen-desktop-renamed" { } ''
+    mkdir -p $out/share/applications
+    substitute ${config.programs.zen-browser.finalPackage}/share/applications/zen-beta.desktop \
+      $out/share/applications/zen-beta.desktop \
+      --replace-fail "Name=Zen Browser (Beta)" "Name=Zen Browser"
+  '';
+in
+{
+  imports = [ inputs.zen-browser.homeModules.beta ];
 
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
-
-    # For a more complete setup, including spaces, bookmarks, extensions, theming and so on, see:
-    # https://github.com/0xc000022070/zen-browser-flake/blob/main/examples/13-complete-setup.nix
   };
+
+  home.packages = [ (lib.hiPrio zenDesktopRenamed) ];
 }
